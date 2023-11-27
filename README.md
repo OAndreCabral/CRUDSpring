@@ -2,10 +2,10 @@
 
 Requer instalação dos pacotes no spring initializr
 
-(Spring Web),
+- Spring Web
 
-Spring Data JPA
+- Spring Data JPA
 
-MySQL Driver
+- MySQL Driver
 
-Validation
+- Validation
