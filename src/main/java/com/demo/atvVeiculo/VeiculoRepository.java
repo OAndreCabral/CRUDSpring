@@ -1,6 +1,6 @@
-package com.demo.repository;
+package com.demo.atvVeiculo;
 
-import com.demo.model.Veiculo;
+import com.demo.atvVeiculo.Veiculo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

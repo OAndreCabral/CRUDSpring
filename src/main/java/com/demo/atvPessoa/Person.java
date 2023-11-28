@@ -1,14 +1,15 @@
 package com.demo.atvPessoa;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.demo.atvVeiculo.Veiculo;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
-public class Pessoaa implements Serializable {
+@Table(name = "person")
+public class Person implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
@@ -16,8 +17,10 @@ public class Pessoaa implements Serializable {
     private String nome;
     private String CPF;
     private String sexo;
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
+    private List<Veiculo> veiculos;
 
-    public Pessoaa() {
+    public Person() {
     }
 
     public Long getId() {
@@ -50,5 +53,13 @@ public class Pessoaa implements Serializable {
 
     public void setSexo(String sexo) {
         this.sexo = sexo;
+    }
+
+    public List<Veiculo> getVeiculos() {
+        return veiculos;
+    }
+
+    public void setVeiculos(List<Veiculo> veiculos) {
+        this.veiculos = veiculos;
     }
 }

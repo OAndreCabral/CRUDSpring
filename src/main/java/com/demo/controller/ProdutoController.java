@@ -1,6 +1,5 @@
 package com.demo.controller;
 
-
 import com.demo.model.Produto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -17,6 +16,17 @@ public class ProdutoController {
     private Produto produto;
     private Long codigo = Long.valueOf((1));
 
+    @PostMapping()
+    public ResponseEntity<Produto> adicionarProduto(@RequestBody Produto p1){
+
+        produto = new Produto();
+        produto.setCodigo(Long.valueOf(codigo++));
+        produto.setDescricao(p1.getDescricao());
+        produto.setValor(p1.getValor());
+        listaDeProduto.add(produto);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(produto);
+    }
     @GetMapping("")
     public List<Produto> listDeProduto() {
         return listaDeProduto;
@@ -33,18 +43,6 @@ public class ProdutoController {
             }
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não encontrado");
-    }
-
-    @PostMapping()
-    public ResponseEntity<Produto> adicionarProduto(@RequestBody Produto p1){
-
-        produto = new Produto();
-        produto.setCodigo(Long.valueOf(codigo++));
-        produto.setDescricao(p1.getDescricao());
-        produto.setValor(p1.getValor());
-        listaDeProduto.add(produto);
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(produto);
     }
 
     @PutMapping("/{id}")

@@ -1,4 +1,4 @@
-package com.demo.model;
+package com.demo.atvVeiculo;
 
 import com.demo.atvPessoa.Person;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -8,19 +8,19 @@ import java.io.Serializable;
 
 @Entity
 public class Veiculo implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String modelo;
     private String marca;
     private String cor;
-
-    public Veiculo() {
-    }
-
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     private Person person;
+
+    public Veiculo() {
+    }
 
     public Long getId() {
         return id;
@@ -52,5 +52,13 @@ public class Veiculo implements Serializable {
 
     public void setCor(String cor) {
         this.cor = cor;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
     }
 }

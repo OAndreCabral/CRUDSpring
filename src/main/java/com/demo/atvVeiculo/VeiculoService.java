@@ -1,7 +1,5 @@
-package com.demo.service;
+package com.demo.atvVeiculo;
 
-import com.demo.model.Veiculo;
-import com.demo.repository.VeiculoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
